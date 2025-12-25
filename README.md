@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/1122449846.svg)](https://doi.org/10.5281/zenodo.18051097)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18051098.svg)](https://doi.org/10.5281/zenodo.18051098)
 
 # Dynamic Alignment Theory (DAT): E₆ Lattice Resilience
