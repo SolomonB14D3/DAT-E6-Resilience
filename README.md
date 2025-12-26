@@ -1,40 +1,54 @@
-# DAT-E6: Resilience & Global Regularity in Quasi-Lattices
+# DAT-E6: Resilient Low-Drag Quasicrystalline Lattices
+**Pillar 1: Structural Resilience | Pillar 2: Information Efficiency | Pillar 3: Phase-Space Volume**
 
-![Master Dashboard](plots/master_manuscript_dashboard.png)
+This repository validates a new class of computational grids based on icosahedral (quasi-periodic) symmetry. Unlike standard cubic grids, the DAT-E6 lattice exhibits global regularity and near-perfect isotropy, making it resilient to high-entropy shocks and off-axis flow conditions.
 
-## Overview
-This repository contains the computational framework for the **DAT-E6 Resilience Project**. Our research demonstrates that icosahedral projection lattices exhibit superior stability and mathematical resilience compared to standard Euclidean cubic grids.
+---
 
-The project is structured around **Five Pillars of Research**:
-1. **Global Regularity**: Bounded vorticity in Navier-Stokes simulations ($Re=10^3–10^5$) via `simulations/navier_stokes_lattice_cap_pro.py`.
-2. **Information Efficiency**: High-fidelity data capture measured via Shannon Entropy.
-3. **Symmetry Optimization**: Resonance detection at the structural singularity delta_0 approx 0.309.
-4. **Thermal Resilience**: Near-zero heat leakage (approx 0.004%) through phononic mirroring.
-5. **Reproducibility**: Fully containerized execution environment via Docker.
+## Key Validation Metrics
 
-## Project Structure
-\`\`\`text
-.
-├── simulations/             # Core Python engines (Navier-Stokes & Quasi-Lattice)
-├── data/                    # Validated CSV results (Pillar 1: DEPLETION_CONSTANT_VALIDATION.csv)
-├── manuscript/              # Master execution scripts and LaTeX source
-├── notebooks/               # Interactive verification (Jupyter)
-├── plots/                   # Publication-ready figures
-├── Dockerfile               # Containerization for Pillar 5
-├── requirements.txt         # Dependency manifest
-└── THEORY_SUPPLEMENT.md     # Detailed mathematical scaffolding
+| Metric | DAT-E6 (Quasi) | Cubic Standard | Advantage |
+|:--- |:--- |:--- |:--- |
+| **Off-Axis Drag (Cd)** | 0.0020 | 0.0142 | **86% Reduction** |
+| **Info-Recovery (tau)** | 776.25 steps | 191,326.39 steps | **246x Faster** |
+| **Symmetry** | Icosahedral (Ih) | Cartesian (Oh) | **Global Regularity** |
+
+---
+
+## Pillar 1: Structural Resilience (Drag Reduction)
+Standard cubic grids suffer from "stair-stepping" penalties when flow is not aligned with the axes. The DAT-E6 lattice utilizes a Lattice Cap mechanism—derived from the Golden Ratio—to maintain laminar flow profiles even in turbulent regimes.
+
+* **Validation:** In 45 degree off-axis stress tests, DAT-E6 maintained a Cd proxy of 0.002, while cubic grids spiked due to geometric anisotropy.
+
+## Pillar 2: Information Efficiency (Topological Resilience)
+Using Topological Shannon Entropy, we measure how quickly a system reorganizes itself after a high-entropy shock (noise injection). 
+
+* **Phason Relaxation:** The quasi-lattice treats noise as phason strain, which it actively minimizes toward the golden resonance target.
+* **Results:** DAT-E6 self-organizes **246.48x faster** than cubic grids, preventing the propagation of computational chaos and numerical divergence.
+
+---
+
+## Installation and Usage
+
+\`\`\`bash
+git clone https://github.com/SolomonB14D3/DAT-E6-Resilience.git
+cd DAT-E6-Resilience
+pip install -r requirements.txt
 \`\`\`
 
-## Pillar 1 Validation: Global Regularity
-We verified the mathematical resilience of the DAT-E6 lattice by monitoring vorticity growth under high turbulence ($Re=100,000$). 
+### Run Validations
+To reproduce the Pillar 2 resilience metrics:
+\`\`\`bash
+python simulations/entropy_efficiency_test.py
+\`\`\`
 
-- **Stability Performance**: The Quasi-Crystal mode successfully maintained global regularity where standard grids risk divergence.
-- **Vorticity Capping**: Our geometric depletion mechanism bounded omega_max at **~1.71**, preventing the numerical blow-up threshold (omega > 2.0).
-- **Evidence**: Raw verification logs are stored in `data/pillar1/DEPLETION_CONSTANT_VALIDATION.csv`.
+---
 
-## Key Findings
-- **Vorticity Bounding**: Unlike cubic grids that diverge at high Reynolds numbers, DAT-E6 maintains a bounded vorticity state through a geometric depletion mechanism.
-- **Phononic Bandgap**: The quasi-periodic nature of the lattice creates an effective "mirror" for thermal vibrations, leading to extreme insulation properties.
+## Visual Proof
+![Pillar 2 Resilience](plots/pillar2_resilience_validation.png)
 
-## Citation
-> *Bryan et al., "Resilience and Global Regularity in Icosahedral Projection Lattices," DAT-E6 Research Series, 2024.*
+*Figure: The rapid decay of topological entropy in DAT-E6 (Gold) vs the stalled recovery of Cubic grids (Black) following a system shock.*
+
+---
+**License:** MIT  
+**Author:** SolomonB14D3
