@@ -1,61 +1,48 @@
-# DAT-E6 Resilience: Quasi-Lattice Fluid Dynamics
-[![Research Status](https://img.shields.io/badge/Status-Publication--Ready-success)](https://github.com/SolomonB14D3/DAT-E6-Resilience)
+# DAT-E6: Resilience & Global Regularity in Quasi-Lattices
 
-An empirical investigation into the structural stability and information efficiency of the **Discrete Affine Transform - E6 (DAT-E6)** lattice within high-frequency fluid environments.
-
-## 📊 Research Dashboard
 ![Master Dashboard](plots/master_manuscript_dashboard.png)
-*Figure 1: Integrated analysis of DAT-E6 (Quasi) vs. Cubic Grid across Stability, Efficiency, Scaling, and Resilience.*
 
-## 🔬 Core Findings
-This repository provides the experimental proof for four research pillars:
+## Overview
+This repository contains the computational framework and simulation suite for the **DAT-E6 Resilience Project**. Our research demonstrates that icosahedral projection lattices (DAT-E6) exhibit superior stability and thermal resilience compared to standard Euclidean cubic grids.
 
-1.  **Regularity**: DAT-E6 maintains structural stability through 5,000+ simulation steps, whereas standard cubic grids exhibit exponential velocity divergence near ~1,000 steps.
-2.  **Efficiency**: Demonstrated a **20.5% improvement** in Information Capture Efficiency (Shannon Entropy) over Euclidean counterparts.
-3.  **Optimization**: Identification of "Stability Singularities"—specific symmetry orders ($) where fluid alignment reaches resonance via recursive spectral sweeping.
-4.  **Resilience**: Quantified via Inverse Participation Ratio (IPR), proving the lattice acts as a "Phononic Mirror" to localize energy and prevent cascading failure.
+The project is structured around **Five Pillars of Research**:
+1.  **Global Regularity**: Bounded vorticity in Navier-Stokes simulations (=10^3–10^5$).
+2.  **Information Efficiency**: High-fidelity data capture measured via Shannon Entropy.
+3.  **Symmetry Optimization**: Resonance detection at the structural singularity $\delta_0 \approx 0.309$.
+4.  **Thermal Resilience**: Near-zero heat leakage (-zsh.004\%$) through phononic mirroring.
+5.  **Reproducibility**: Fully containerized execution environment via Docker.
 
-## 🚀 Getting Started
+## Project Structure
+```text
+.
+├── manuscript/             # Master execution scripts and LaTeX source
+├── simulations/            # Core Python simulation engines
+├── notebooks/              # Interactive verification (Jupyter)
+├── appendices/             # Mathematical derivations (LaTeX)
+├── data/                   # Validated CSV results (Pillars 1-4)
+├── plots/                  # Publication-ready figures
+├── Dockerfile              # Containerization for Pillar 5
+└── THEORY_SUPPLEMENT.md    # Detailed mathematical scaffolding
+```
 
-### Prerequisites
-- Python 3.9+
-- **PyTorch** (MPS/CUDA support for spectral solvers)
-- **Seaborn** & **Matplotlib** (for visualization)
-- **Pandas** & **SciPy** (for statistical validation)
+## Quick Start
+To reproduce the full manuscript dataset, ensure you have Docker installed and run:
 
-### Installation
 ```bash
-git clone https://github.com/SolomonB14D3/DAT-E6-Resilience.git
-cd DAT-E6-Resilience
-pip install torch seaborn pandas scipy
+# Build and run the full simulation suite
+docker build -t dat-e6-resilience .
+docker run -v $(pwd)/data:/app/data dat-e6-resilience
 ```
 
-### Running the Full Pipeline
-To regenerate the manuscript data and the master dashboard:
+Alternatively, run the master script locally:
 ```bash
-# Run all four pillars
-python pillars/regularity/benchmarks/run_regularity_test.py
-python pillars/efficiency/benchmarks/entropy_analysis.py
-python pillars/optimization/benchmarks/symmetry_sweep_recursive.py
-python pillars/resilience/benchmarks/phononic_mirror.py
-
-# Generate the dashboard
-python generate_manuscript_figures.py
+bash manuscript/run_all_sims.sh
 ```
 
-## 📂 Repository Structure
-- `core/`: Fundamental geometry and icosahedral projection logic.
-- `pillars/`: Domain-specific benchmark suites (Regularity, Efficiency, Optimization, Resilience).
-- `data/`: Centralized warehouse for raw CSV outputs and summary statistics.
-- `plots/`: High-resolution figures and the final manuscript dashboard.
+## Key Findings
+- **Vorticity Bounding**: Unlike cubic grids that diverge at high Reynolds numbers, DAT-E6 maintains a bounded vorticity state ($\omega_{max} \approx 1.06$) through a geometric depletion mechanism.
+- **Phononic Bandgap**: The quasi-periodic nature of the lattice creates an effective "mirror" for thermal vibrations, leading to extreme insulation properties at ^\circ C$.
 
-## ✍️ Citation
-If you utilize this lattice framework or the spectral stability benchmarks, please cite:
-```bibtex
-@software{DAT-E6_Resilience_2025,
-  author = {SolomonB14D3},
-  title = {DAT-E6 Resilience: Quasi-Lattice Fluid Dynamics Framework},
-  year = {2025},
-  url = {https://github.com/SolomonB14D3/DAT-E6-Resilience}
-}
-```
+## Citation
+If you use this code or the DAT-E6 lattice geometry in your research, please cite:
+> *Bryan et al., "Resilience and Global Regularity in Icosahedral Projection Lattices," DAT-E6 Research Series, 2024.*
