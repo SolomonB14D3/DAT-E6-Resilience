@@ -1,7 +1,7 @@
 # Theory of Dynamic Alignment (DAT 2.0)
 
 ## 1. Geometric Foundation: The $E_6$ Projection
-Dynamic Alignment Theory (DAT) is predicated on the projection of the 6-dimensional $E_6$ Lie Algebra root lattice into 3-dimensional Euclidean space ($\mathbb{R}^3$). The 72 roots of $E_6$ provide a unique set of basis vectors that, when projected, generate an icosahedral quasicrystalline manifold.
+Discrete Alignment Theory (DAT) is predicated on the projection of the 6-dimensional $E_6$ Lie Algebra root lattice into 3-dimensional Euclidean space ($\mathbb{R}^3$). The 72 roots of $E_6$ provide a unique set of basis vectors that, when projected, generate an icosahedral quasicrystalline manifold.
 
 The alignment strength $A(n)$ as a function of the lattice order $n$ is defined by:
 $$A(n) \approx \frac{12}{\sin(\pi/(n-\delta))}$$
