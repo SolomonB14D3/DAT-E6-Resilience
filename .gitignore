@@ -2,3 +2,6 @@ __pycache__/
 .DS_Store
 experiment_r7_*/
 raw_data.csv
+__pycache__/
+.DS_Store
+*.pyc
