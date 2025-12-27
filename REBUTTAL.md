@@ -1,7 +1,7 @@
 # Response to Audit (Dec 26, 2025)
 
 ### 1. Mathematical Errors
-- **Observation:** $\delta_0 = 5 - 1/4$ was noted as an arithmetic error.
+- **Observation:** $\delta_0 = (\sqrt{5}-1)/4$ was noted as an arithmetic error.
 - **Resolution:** Corrected to the geometric icosahedral constant $\frac{\sqrt{5}-1}{4} \approx 0.309$.
 
 ### 2. Numerical Consistency

@@ -3,7 +3,7 @@ message: "If you use this software or the DAT 2.0 framework, please cite it as f
 authors:
   - family-names: "Lab"
     given-names: "Bryan"
-title: "DAT-E6-Resilience: A Computational Framework for Dynamic Alignment Theory 2.0"
+title: "DAT-E6-Resilience: A Computational Framework for Discrete Alignment Theory 2.0"
 version: 2.0.0
 doi: doi-pending  # Placeholder for your actual DOI
 date-released: 2025-12-26
