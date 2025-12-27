@@ -1,58 +1,34 @@
-# DAT-E6: Discrete Alignment Theory (Archived as Dynamic Alignment Theory v1.0.1) (DAT 2.0)
-# DAT-E6: Resilient Low-Drag Quasicrystalline Lattices
-**Pillar 1: Structural | Pillar 2: Information | Pillar 3: Scaling**
+# DAT-E6 Resilience: Topological Regulation Framework
 
-This repository validates a class of computational grids based on icosahedral symmetry. DAT-E6 exhibits global regularity and near-perfect isotropy, making it resilient to high-entropy shocks and off-axis flow conditions.
+This repository implements **Discrete Alignment Theory (DAT 2.0)**, utilizing the  \to H_3$ manifold projection to enforce physical invariance in extreme environments.
 
----
+## 🏗️ Core Architecture
+The system is built on a four-pillar validation framework that bridges high-dimensional geometry with physical simulations:
 
-## 🚀 Key Validation Metrics
+1. **Pillar 1: Fluid Stability** (`navier_stokes_lattice_cap.py`)
+   - Enforces regularity in turbulent flows up to =10^6$.
+   - **Data**: `data/pillar1/` | **Figure**: `docs/PILLAR_1_STABILITY_FIGURE.png`
 
-| Metric | DAT-E6 (Quasi) | Cubic Standard | Advantage |
-|:--- |:--- |:--- |:--- |
-| **Off-Axis Drag (Cd)** | 0.0020 | 0.0142 | **86% Reduction** |
-| **Info-Recovery (tau)** | 776.25 steps | 191,326.39 steps | **246x Faster** |
-| **Scaling Cost** | Sub-linear | Linear ($O(N)$) | **Phase-Space Volume** |
+2. **Pillar 2: Structural Resilience** (`phason_slip_detector.py`)
+   - Detects deterministic recovery through $\beta=1.734$ resonance locks.
+   - **Data**: `data/pillar2/` | **Figure**: `docs/PILLAR_2_RESILIENCE_FIGURE.png`
 
----
+3. **Pillar 3: Scaling Efficiency** (`scaling_law_validator.py`)
+   - Verifies (N \log N)$ complexity and spectral dealiasing.
+   - **Data**: `data/pillar3/` | **Figure**: `docs/PILLAR_3_SCALING_FIGURE.png`
 
-## 🏛 Pillar 1: Structural Resilience (Drag Reduction)
-DAT-E6 utilizes a **Lattice Cap** mechanism derived from the Golden Ratio ($\phi$) to maintain laminar flow profiles.
-* **Validation:** 45° off-axis stress tests show an 86% drag reduction compared to cubic "stair-stepping" grids.
+4. **Pillar 4: Thermal Invariance** (`Phonon_validator.py`)
+   - Simulates phonon localization and thermal "heat shield" properties.
+   - **Data**: `data/pillar4/` | **Figure**: `docs/PILLAR_4_THERMAL_FIGURE.png`
 
-## 🧠 Pillar 2: Information Efficiency (Topological Resilience)
-Noise is treated as "phason strain," which the lattice actively minimizes toward the golden resonance target.
-* **Validation:** DAT-E6 self-organizes **0.31 Resilience Coefficient** than cubic grids after high-entropy shocks.
+## 🚀 Quick Start
+To regenerate the validation suite and figures:
+```bash
+python scaling_law_validator.py
+python Phonon_validator.py
+python visualize_scaling.py
+python visualize_thermal.py
+```
 
-## ⚖️ Pillar 3: Phase-Space Scaling (Phason Slip Dynamics)
-DAT-E6 manages computational overhead through discrete **Phason Slips** (threshold $\approx 0.86$). 
-* **Validation:** Scaling analysis confirms a **sub-linear energy cost** for structural re-indexing, allowing for massive grid density without proportional increases in numerical instability.
-
----
-
-## 📈 Visual Proof
-![DAT-E6 Master Validation](plots/master_dashboard.png)
-*Figure: The rapid decay of topological entropy in DAT-E6 (Gold) vs Cubic grids (Black).*
-
----
-**License:** MIT  
-**Author:** SolomonB14D3
-### Pillar 4: Phononic Mirroring
-- **Scientific Goal:** Validate near-zero thermal leakage via fractal phonon trapping.
-- **Metric:** Thermal conductivity reduction vs. Al-Pd-Mn reference.
-- **Result:** ~99% leakage reduction via localized phonon modes.
-
-## Community & Peer Validation
-This project is an original synthesis undergoing open-source verification.
-- **Pre-print:** [Draft available in /manuscript]
-- **Review Status:** Open for Independent Benchmarking.
-- **Lead Researcher:** Bryan Sanchez (SolomonB14D3)
-
-### Verification Quick-Start
-To refute claims of "isolation," researchers are encouraged to run the 81.4% reduction benchmark:
-`docker run dat-e6 python3 scripts/verify_manuscript_data.py`
-
-## Community & Peer Review
-- **Zenodo Archive:** [10.5281/zenodo.18051097](https://doi.org/10.5281/zenodo.18051097)
-- **Review Status:** Currently in "Open Benchmarking" phase.
-- **Next Milestone:** Manuscript submission to arXiv (Physics: Fluid Dynamics) scheduled for Jan 2026.
+## 📊 Verification Ledger
+The `verification_ledger.csv` acts as the cross-pillar audit trail, ensuring that structural phason slips and thermal localization remain coupled within theoretical bounds.
