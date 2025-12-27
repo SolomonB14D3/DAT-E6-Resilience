@@ -1,4 +1,4 @@
-# DAT-E6: Discrete Alignment Theory (DAT 2.0)
+# DAT-E6: Discrete Alignment Theory (Archived as Dynamic Alignment Theory v1.0.1) (DAT 2.0)
 # DAT-E6: Resilient Low-Drag Quasicrystalline Lattices
 **Pillar 1: Structural | Pillar 2: Information | Pillar 3: Scaling**
 
@@ -51,3 +51,8 @@ This project is an original synthesis undergoing open-source verification.
 ### Verification Quick-Start
 To refute claims of "isolation," researchers are encouraged to run the 81.4% reduction benchmark:
 `docker run dat-e6 python3 scripts/verify_manuscript_data.py`
+
+## Community & Peer Review
+- **Zenodo Archive:** [10.5281/zenodo.18051097](https://doi.org/10.5281/zenodo.18051097)
+- **Review Status:** Currently in "Open Benchmarking" phase.
+- **Next Milestone:** Manuscript submission to arXiv (Physics: Fluid Dynamics) scheduled for Jan 2026.

@@ -17,7 +17,7 @@ $$\tau_d(n) = \tau_0 \cdot \phi^{\frac{12 - |n - 12|}{12}}$$
 
 ## 3. Physical Implications: Vorticity Depletion
 In Navier-Stokes formulations, the $E_6$ manifold enforces a regularity cap on vorticity growth ($\omega$). Unlike cubic grids which allow for singular blow-ups, the DAT manifold constrains growth to the theoretical depletion constant:
-$$\delta_0 = \frac{\sqrt{5}-1}{4} \approx 0.309$$
+$$\delta_0 = \frac{\sqrt{5}-1}{4} \approx 0.309 (Geometric Icosahedral Constant)$$
 
 Our empirical data confirms that under high Reynolds numbers ($Re=1000$), the DAT-E6 structure maintains a mean vorticity of $\approx 0.2445$, representing an 81.4% reduction in turbulent drag compared to standard cubic discretization.
 
