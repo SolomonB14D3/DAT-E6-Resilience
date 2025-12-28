@@ -30,4 +30,11 @@ The system now includes a physical export bridge to translate DAT manifolds into
 * **Compatibility**: Exported data is ready for FEA (COMSOL) and Molecular Dynamics (LAMMPS) verification.
 
 ---
-*Status: Pillar 7 Integrated. Ready for External Multi-Physics Validation.*
+## 🧱 Pillar 7 & 8: Physical Bridge & Topological Audit
+The system now supports physical export and graph-theoretic validation:
+* **Pillar 7**: Exports `.xyz` and `.csv` coordinates for FEA/LAMMPS.
+* **Pillar 8**: Connectivity Auditor verifies "Lock-and-Key" bond reconfiguration.
+* **Metric**: Verified topological reconfiguration via 4D perpendicular drift.
+
+---
+*Status: v1.1.0 - Computational Validation Complete. Ready for Physical Synthesis.*
