@@ -1,160 +1,113 @@
 # Discrete Alignment Theory (DAT)
 
-Mathematical framework for topological resilience via E₆ → H₃ Coxeter projection. The icosahedral quasicrystalline manifold enforces geometric constraints that bound vorticity growth and enable thermal regulation.
+Computational tools for icosahedral quasicrystal generation via E₆ → H₃ Coxeter projection, with applications to phonon localization and phason dynamics.
 
-## Key Result
+## Status: REVISED (January 2026)
 
-The **depletion constant** derived from icosahedral geometry:
+The original claim that DAT "bounds vorticity growth" and proves Navier-Stokes regularity has been **withdrawn**. Rigorous analysis shows bounded multiplicative depletion cannot change the supercritical Z^(3/2) exponent in the enstrophy inequality. The "81.4% turbulence reduction" was a numerical solver artifact.
 
-$$\delta_0 = \frac{\sqrt{5}-1}{4} \approx 0.309$$
+What remains is a computational framework for generating icosahedral quasicrystal point sets and studying their phonon/phason properties.
 
-This 30.9% geometric constraint on alignment arises from the vertex angle of the icosahedron (θ = 63.43°) and provides:
-- **Vortex stretching bound** in fluid dynamics (→ Navier-Stokes regularity)
-- **Thermal localization** via phonon scattering (4.2× IPR contrast vs cubic)
-- **Topological switching** through phason slip (18.88% bond reconfiguration)
+## What This Repo Provides
 
-## The 8 Pillars
+### Validated
+- **Quasicrystal point set generation** via cut-and-project method (`dat_core.py`)
+- **E₆ → H₃ folding** — correct Coxeter group theory (known mathematics)
+- **Phonon localization contrast** — 4.2× IPR vs cubic (real physics of quasicrystals)
+- **Phason slip dynamics** — bond reconfiguration under perpendicular-space perturbation
 
-| Pillar | Focus | Key Metric | Status |
-|--------|-------|------------|--------|
-| 1 | Energy Stability | Bounded 2.0×10⁻² to 2.9×10⁻² | ✅ |
-| 2 | Structural Resilience | β = 1.734 resonance lock | ✅ |
-| 3 | Computational Scaling | O(N log N) | ✅ |
-| 4 | Thermal Localization | IPR 4.2× vs cubic | ✅ |
-| 5 | Stress Resilience | ε = [1.1, 1.0, 0.9] stable | ✅ |
-| 6 | Phason Switching | 0.756 drift, 81% stability | ✅ |
-| 7 | Physical Bridge | .xyz/.csv export | ✅ |
-| 8 | Connectivity Audit | ~13,000 bond reconfiguration | ✅ |
+### Withdrawn
+- ~~Vortex stretching bound → NS regularity~~ — debunked (see [analysis](https://github.com/SolomonB14D3/navier-stokes-h3/blob/main/analytical_proof_attempt.md))
+- ~~81.4% turbulence reduction~~ — solver artifact (integrating factor prevents blowup regardless)
+- ~~δ₀ as universal constraint across Millennium Problems~~ — overstated
+
+## The Constant
+
+$$\delta_0 = \frac{\sqrt{5}-1}{4} = \frac{1}{2\varphi} \approx 0.309$$
+
+This is a geometric property of the icosahedron (related to the vertex angle θ = 63.43°). It appears in:
+- The alignment geometry of icosahedral point sets (valid)
+- Measured depletion in NS simulations (observed, but cannot prove regularity)
+
+## Core Code
+
+### `dat_core.py` — Quasicrystal Generator
+
+Generates icosahedral quasicrystal point sets using φ-based basis vectors, permutation symmetries, and stereographic projection:
+
+```python
+from dat_core import get_h3_lattice
+
+# Generate 1000-point icosahedral quasicrystal
+lattice = get_h3_lattice(n_points=1000)
+```
+
+### `core/geometry.py` — Projection Engine
+
+Projects points through a φ-based 3×5 matrix for icosahedral-like geometry:
+
+```python
+from core.geometry import get_icosahedral_projection
+
+pts_3d = get_icosahedral_projection(n_points=100)
+```
 
 ## Quick Start
 
 ```bash
-# Clone and install
 git clone https://github.com/SolomonB14D3/Discrete-Alignment-Theory.git
 cd Discrete-Alignment-Theory
 pip install -r requirements.txt
 
-# Run thermal localization verification (Pillar 4)
+# Generate quasicrystal lattice
+python dat_core.py
+
+# Run thermal localization comparison
 python pillar4_thermal_diagnostic.py
-
-# Docker verification (optional)
-docker build -t dat-verification .
-docker run dat-verification python3 scripts/verify_manuscript_data.py
 ```
 
-## Project Structure
+## Background: E₆ → H₃ Folding
+
+The E₆ Lie algebra (72 roots) folds via Z₂ outer automorphism through F₄ to recover the non-crystallographic H₃ (icosahedral) Coxeter group. This is established mathematics:
 
 ```
-├── core/                 # E₆ → H₃ projection engine
-│   ├── geometry.py       # Icosahedral projection (φ-based)
-│   └── lattice_projection.py
-├── simulations/          # Pillar validation simulations
-├── docs/                 # Pillar reports and figures
-├── manuscript/           # Academic documentation
-├── data/                 # Validation datasets
-├── plots/                # Publication figures
-└── scripts/              # Verification utilities
-```
-
-## Core Theory
-
-### E₆ → H₃ Folding
-
-The 72 roots of the E₆ Lie algebra are folded via Z₂ outer automorphism through F₄ to recover the icosahedral H₃ manifold. This projection preserves "topological memory" while enforcing 12-fold rotational symmetry.
-
-### The Harmony Plateau (n=12)
-
-At lattice order n=12, phason strain reaches a global minimum. The entropy lag follows golden ratio scaling:
-
-$$\tau_d(n) = \tau_0 \cdot \varphi^{\frac{12 - |n - 12|}{12}}$$
-
-### Vorticity Depletion
-
-The manifold enforces a regularity cap on vorticity growth:
-
-$$\mathcal{A} \leq 1 - \delta_0 = \frac{5 - \sqrt{5}}{4} \approx 0.691$$
-
-Under high Reynolds numbers (Re=1000), the DAT manifold maintains 81.4% reduction in turbulent intensity compared to cubic discretization.
-
----
-
-## How DAT Connects to the Ecosystem
-
-### From Lie Algebra to Physics
-
-```
-E₆ Lie Algebra (72 roots)
+E₆ (72 roots, rank 6)
     ↓ Z₂ outer automorphism
-F₄ intermediate
-    ↓ Coxeter projection
-H₃ Icosahedral Manifold
-    ↓
-┌───────────────────────────────────────────────────┐
-│                    δ₀ = (√5-1)/4                  │
-└───────────────────────────────────────────────────┘
-    ↓                   ↓                    ↓
-Phason Slip      Vortex Depletion     Phonon Scattering
-(Pillar 6)       (NS Regularity)      (Thermal Diode)
-    ↓                   ↓                    ↓
-Bond reconfig.   Bounded enstrophy    76.7% DOS asymmetry
+F₄ (48 roots, rank 4)
+    ↓ Non-crystallographic projection
+H₃ (icosahedral, order 120)
 ```
 
-### Cross-Repository Connections
+The golden ratio φ = (1+√5)/2 appears naturally in icosahedral geometry (vertex coordinates, dihedral angles, etc.). This is well-known — see Coxeter (1973), Humphreys (1990).
 
-| This Repo (DAT) | Provides | To |
-|-----------------|----------|-----|
-| E₆ → H₃ projection | δ₀ derivation | [navier-stokes-h3](https://github.com/SolomonB14D3/navier-stokes-h3) |
-| Phason dynamics | Topological switching | [H3-Hybrid-Discovery](https://github.com/SolomonB14D3/H3-Hybrid-Discovery) |
-| Resonance lock (β=1.734) | φ-frequency filtering | [dat-ml](https://github.com/SolomonB14D3/dat-ml) |
+## What's Legitimate Physics
 
-### The Unified δ₀ Picture
+**Phonon localization in quasicrystals** is a real, well-studied phenomenon. Quasicrystalline structures lack translational periodicity, leading to:
+- Modified phonon dispersion relations
+- Enhanced vibrational localization (Anderson-like, but from quasiperiodicity)
+- Anomalous thermal transport
 
-| Domain | How δ₀ Manifests | Measured Value |
-|--------|------------------|----------------|
-| **Fluid Dynamics** | Vortex stretching cap | 0.31 (crisis regime) |
-| **Solid Mechanics** | Cluster ratio ≈ φ | 1.62 / φ = 1.001 |
-| **Thermal Transport** | Phonon DOS asymmetry | 76.7% |
-| **ML Spectral** | σ × δ₀ = 1.081 | Matches H₃ coordination |
+The 4.2× IPR contrast vs cubic is consistent with literature on quasicrystalline thermal properties.
 
-**Key insight**: DAT provides the theoretical foundation (E₆ → H₃ folding) that explains why icosahedral geometry appears in:
-- Turbulence regularization (NS)
-- Metastable phase formation (H3-Hybrid)
-- Spectral filtering (dat-ml)
+**Phason dynamics** are the real additional degrees of freedom in quasicrystals — fluctuations in the perpendicular-space component of the higher-dimensional embedding.
 
----
+## What Was Wrong
 
-## Performance Summary
+The original DAT framework claimed δ₀ = 1/(2φ) acts as a universal constraint that:
+1. Bounds vortex stretching → proves NS regularity
+2. Governs phase transitions in SAT (P vs NP)
+3. Constrains Riemann zero spacings
+4. Appears in glueball mass ratios (Yang-Mills)
 
-| Metric | Value | Significance |
-|--------|-------|--------------|
-| Localization Contrast (IPR) | 4.2× vs cubic | Superior thermal shielding |
-| Phason Drift (3D) | 0.756 units | Physical reconfiguration |
-| Topological Stability | 81.12% | Integrity during switching |
-| Bond Reconfiguration | ~13,000 bonds | Lock-and-key transition |
-| Vorticity Reduction | 81.4% at Re=1000 | Turbulence suppression |
+These connections were either **falsified** or shown to be **insufficient** for the claimed conclusions. The core mathematical issue: a bounded multiplicative factor on a supercritical nonlinearity does not make it subcritical.
 
-## Academic References
+## References
 
-- **Quasicrystals:** Levine & Steinhardt (1984), Cut-and-Project method
-- **E₆ Root Systems:** Cartan, Lie algebra foundations
-- **Aperiodic Order:** Baake & Grimm, non-periodic tiling
-- **Geometric Depletion:** Constantin & Fefferman (1993), Grujić (2009)
-
-## Citation
-
-```bibtex
-@software{solomon2026dat,
-  author = {Solomon, Bryan},
-  title = {Discrete Alignment Theory: E₆ → H₃ Topological Resilience},
-  year = {2026},
-  url = {https://github.com/SolomonB14D3/Discrete-Alignment-Theory}
-}
-```
+- Levine & Steinhardt (1984): Quasicrystals via cut-and-project
+- Coxeter (1973): Regular Polytopes
+- Baake & Grimm (2013): Aperiodic Order
+- Humphreys (1990): Reflection Groups and Coxeter Groups
 
 ## License
 
-MIT License - See [LICENSE](LICENSE)
-
----
-
-**Status:** v1.1.0 GOLD - All 8 Pillars Validated
+MIT License

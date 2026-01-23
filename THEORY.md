@@ -1,34 +1,63 @@
-# Theory of Dynamic Alignment (DAT 2.0)
+# Theory: E₆ → H₃ Projection for Quasicrystal Generation
 
-## 1. Geometric Foundation: The $E_6$ Projection
-Discrete Alignment Theory (DAT) is predicated on the projection of the 6-dimensional $E_6$ Lie Algebra root lattice into 3-dimensional Euclidean space ($\mathbb{R}^3$). The 72 roots of $E_6$ provide a unique set of basis vectors that, when projected, generate an icosahedral quasicrystalline manifold.
+## 1. Geometric Foundation: The E₆ Projection
 
-The alignment strength $A(n)$ as a function of the lattice order $n$ is defined by:
-$$A(n) \approx \frac{12}{\sin(\pi/(n-\delta))}$$
-where $\delta$ represents the phason displacement constant.
+The E₆ Lie algebra has 72 roots forming a highly symmetric structure in 6-dimensional space. The Z₂ outer automorphism of the E₆ Dynkin diagram folds it into F₄ (48 roots, rank 4). The non-crystallographic H₃ (icosahedral) Coxeter group is recovered as a sub-structure of this projection.
 
-## 2. The Harmony Plateau (n=12)
-The system exhibits a non-monotonic frustration gradient. As the lattice order $n$ approaches the dozenal vertex count ($n=12$), the phason strain reaches a global minimum. This state, termed **Geometric Resonance**, allows for the "Topological Escape" of entropy.
+This is established mathematics — see Humphreys (1990), Coxeter (1973).
 
-The entropy lag $\tau_d(n)$ follows the Golden Ratio ($\phi \approx 1.618$) scaling law:
-$$\tau_d(n) = \tau_0 \cdot \phi^{\frac{12 - |n - 12|}{12}}$$
+## 2. Cut-and-Project Method
 
+The code uses the standard Levine-Steinhardt (1984) cut-and-project method:
+1. Define basis vectors in higher-dimensional space using φ = (1+√5)/2
+2. Apply permutation symmetries to generate the full point set
+3. Project to 3D via stereographic projection
+4. Filter for unique points
 
+The resulting point sets have icosahedral symmetry and quasiperiodic order.
 
-## 3. Physical Implications: Vorticity Depletion
-In Navier-Stokes formulations, the $E_6$ manifold enforces a regularity cap on vorticity growth ($\omega$). Unlike cubic grids which allow for singular blow-ups, the DAT manifold constrains growth to the theoretical depletion constant:
-$$\delta_0 = \frac{\sqrt{5}-1}{4} \approx 0.309 (Geometric Icosahedral Constant)$$
+## 3. The Constant δ₀
 
-Our empirical data confirms that under high Reynolds numbers ($Re=1000$), the DAT-E6 structure maintains a mean vorticity of $\approx 0.2445$, representing an 81.4% reduction in turbulent drag compared to standard cubic discretization.
+$$\delta_0 = \frac{\sqrt{5}-1}{4} = \frac{1}{2\varphi} \approx 0.309$$
 
-## 4. Academic Context & Prior Art
-This framework builds upon the following established mathematical and physical foundations:
-* **Projection Method:** Based on the "Cut-and-Project" method for Quasicrystals established by *Levine & Steinhardt (1984)*.
-* **$E_6$ Root Systems:** Utilizes the Lie Algebra foundations defined by *E. Cartan*, specifically the 72-root icosahedral projection.
-* **Turbulence Regularity:** Addresses the "Navier-Stokes Smoothness" problem using the geometric constraints of non-periodic tiling as explored in *Aperiodic Order (Baake & Grimm)*.
+This appears naturally in icosahedral geometry. The icosahedral vertex angle is θ = arccos(1/√5) ≈ 63.43°, and various trigonometric functions of θ yield φ-related constants.
 
-### Formal Symmetry Folding: $E_6 \to H_3$
-To resolve the root-count discrepancy, DAT 2.0 employs a folding of the $E_6$ Coxeter-Dynkin diagram. By identifying nodes via an outer automorphism, the 72 roots of $E_6$ are mapped onto the 3D icosahedral $H_3$ manifold. This projection preserves the "Topological Memory" of the 6D parent lattice while enforcing the 12-fold rotational symmetry required for the Harmony Plateau. Phason strain $\chi$ is minimized when the projected roots align with the 12 vertices of the $H_3$ shell.
+**Note**: The original claim that δ₀ "bounds vortex stretching" and proves Navier-Stokes regularity has been **withdrawn**. A bounded multiplicative reduction of the stretching term cannot change the supercritical Z^(3/2) exponent in the enstrophy inequality. See the [full analysis](https://github.com/SolomonB14D3/navier-stokes-h3/blob/main/analytical_proof_attempt.md).
 
-### Formal Symmetry Folding: $E_6 \to H_3$
-To resolve the root-count discrepancy, DAT 2.0 employs the folding of the $E_6$ Dynkin diagram via its $\mathbb{Z}_2$ outer automorphism. This folds $E_6$ into the $F_4$ root system. The icosahedral $H_3$ manifold is then recovered as a non-crystallographic sub-lattice. This projection preserves the "Topological Memory" of the 6D parent while enforcing the 12-fold rotational symmetry (Harmony Plateau) at $n=12$. 
+## 4. Phonon Localization (Validated)
+
+Quasicrystalline structures exhibit enhanced phonon localization compared to periodic crystals. This is well-established physics:
+- Lack of translational periodicity → no Bloch theorem
+- Critical wave functions (neither extended nor exponentially localized)
+- Anomalous thermal transport properties
+
+The 4.2× IPR (Inverse Participation Ratio) contrast vs cubic lattices is consistent with literature on icosahedral quasicrystals.
+
+## 5. Phason Dynamics (Validated)
+
+Phasons are the additional degrees of freedom unique to quasicrystals — they correspond to fluctuations in the perpendicular-space component of the higher-dimensional embedding. Under phason strain:
+- Bonds reconfigure (tiles flip)
+- Local order changes while global quasiperiodicity is preserved
+- This is a real physical mechanism in Al-Mn, Al-Cu-Fe, and other icosahedral quasicrystals
+
+## 6. What Was Withdrawn
+
+### Navier-Stokes Regularity (DEBUNKED)
+
+The claim that the "DAT manifold constrains vorticity growth" was based on:
+- A modified PDE (not standard NS)
+- A spectral solver that is inherently stable (can't blow up regardless)
+- The mathematical error of assuming a constant factor reduction changes criticality
+
+The enstrophy inequality dZ/dt ≤ (1-δ₀)·C·Z^(3/2) - ν·λ₁·Z still admits blowup for any (1-δ₀) > 0. The problem is the exponent, not the coefficient.
+
+### Universal φ-Connections (OVERSTATED)
+
+The original claims that δ₀ governs P vs NP phase transitions, Riemann zero spacings, Yang-Mills mass gaps, etc. were either falsified by experiment or shown to be insufficient for the claimed conclusions.
+
+## References
+
+- Levine, D. & Steinhardt, P. (1984). Quasicrystals: A New Class of Ordered Structures. *Phys. Rev. Lett.* 53, 2477.
+- Coxeter, H.S.M. (1973). *Regular Polytopes*. Dover.
+- Baake, M. & Grimm, U. (2013). *Aperiodic Order, Vol. 1*. Cambridge.
+- Humphreys, J.E. (1990). *Reflection Groups and Coxeter Groups*. Cambridge.

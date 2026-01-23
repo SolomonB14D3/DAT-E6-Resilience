@@ -1,13 +1,25 @@
-# DAT-E6 Project Status: Discrete Alignment Theory
-**Version:** 2.2-stable
-**Last Verified:** Dec 26, 2025 (Local Build)
+# DAT Project Status
+**Version:** 3.0 (Revised)
+**Last Updated:** January 2026
 
-## Verified Benchmarks
-- **Topological Stability:** 0.31 (3.2x improvement over cubic baseline).
-- **Vorticity Capping:** 81.4% reduction at Re=1000.
-- **Symmetry Group:** $E_6 \to H_3$ (Icosahedral) Discrete Manifold.
+## Current Status
 
-## Corrective Actions Taken
-- [x] **Math:** Fixed legacy $\delta_0$ arithmetic; standardized to geometric constant 0.309.
-- [x] **Naming:** Rebranded to "Discrete Alignment Theory" to avoid acronym collision with crypto-finance (DAT 2.0).
-- [x] **DOI:** Removed placeholder Zenodo links; updated to "Pre-print Pending" to maintain integrity.
+The Navier-Stokes regularity claims have been **withdrawn**. What remains is a computational quasicrystal framework.
+
+## Validated
+- **E₆ → H₃ projection**: Correct Coxeter group theory (known mathematics)
+- **Quasicrystal generation**: Cut-and-project implementation works correctly
+- **Phonon localization**: 4.2× IPR contrast vs cubic (consistent with literature)
+- **Phason dynamics**: Bond reconfiguration under perpendicular-space shifts
+
+## Withdrawn
+- ~~Vorticity Capping: 81.4% reduction~~ — solver artifact (integrating factor inherently stable)
+- ~~NS regularity via δ₀~~ — bounded depletion cannot change Z^(3/2) exponent
+- ~~Universal δ₀ across Millennium Problems~~ — connections falsified or insufficient
+
+## Corrective Actions
+- [x] Fixed legacy δ₀ arithmetic
+- [x] Rebranded naming
+- [x] Removed placeholder DOI links
+- [x] **Withdrew NS regularity claims** (January 2026)
+- [x] **Updated all documentation to reflect revised status**
